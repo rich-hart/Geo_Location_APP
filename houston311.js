@@ -41,6 +41,10 @@ if (Meteor.isClient) {
         position: map.options.center,
         map: map.instance
       });
+      
+      //should loop through javascript object collection
+testAddress(geocoder,'1218 Apache 77022',map);
+
     });
   });
 }
@@ -51,3 +55,18 @@ if (Meteor.isServer) {
   });
 }
 
+//validation
+function testAddress(geocoder,sourceAddress,resultsMap){
+   geocoder.geocode({'address': sourceAddress}, function(results, status) {
+    if (status === google.maps.GeocoderStatus.OK) {
+      resultsMap.setCenter(results[0].geometry.location);
+      var marker = new google.maps.Marker({
+        map: resultsMap,
+        position: results[0].geometry.location
+      });
+      alert('found you bastard');
+    } else {
+      alert('Geocode was not successful for the following reason: ' + status);
+    }
+  });  
+}
