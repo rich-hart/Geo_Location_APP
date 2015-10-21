@@ -1,0 +1,17 @@
+<head>
+  <title>houston311</title>
+</head>
+
+<body>
+  <div class='map-container'>
+    {{> googleMap name="exampleMap" options=exampleMapOptions}}
+  </div>
+  <h1>Welcome to Meteor!</h1>
+
+  {{> hello}}
+</body>
+
+<template name="hello">
+  <button>Click Me</button>
+  <p>You've pressed the button {{counter}} times.</p>
+</template>
