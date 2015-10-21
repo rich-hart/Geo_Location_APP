@@ -43,7 +43,8 @@ if (Meteor.isClient) {
       });
       
       //should loop through javascript object collection
-testAddress(geocoder,'1218 Apache 77022',map);
+      var geocoder = new google.maps.Geocoder();
+      testAddress(geocoder,'1218 Apache 77022',map);
 
     });
   });
